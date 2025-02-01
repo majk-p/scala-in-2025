@@ -6,6 +6,52 @@ transition: slide
 marp: true
 ---
 
+<!-- 
+Talk plan
+
+1. Briefly what Scala is
+ * OOP and FP
+ * Multiplatform
+ * Backed by academia, not corporations
+2. IDEs 
+ * Intellij 
+   * How to install
+   * Scala plugin (https://github.com/JetBrains/intellij-scala)
+   * Pros (out of the box, familiar for Java devs/Pycharm users)
+   * Cons (errors can be out of sync, non OSS editor)
+ * Metals 
+   * How to install (Editor of choice)
+   * Pros (in sync with the compiler, latest compiler features)
+   * Cons (unequal experience across editors, requires reimport more often than intellij)
+3. Build tools
+ * What are they
+ * sbt, scala-cli, just mention mill
+ * scala-cli good enough for starters
+4. Flavors of Scala
+ * Good old OOP with https://www.playframework.com
+ * Python like with Li Haoi https://www.lihaoyi.com/post/12yearsofthecomlihaoyiScalaPlatform.html
+ * Direct style concurrency with Ox https://ox.softwaremill.com/latest
+ * Hardcore FP with Cats Effect https://typelevel.org/cats-effect
+ * Actors with Pekko/Akka
+ * Many more
+   * ZIO
+   * Spark
+   * Casual FP
+   * Everything in between 
+5. Benefits of giving it a try (key takeaways)
+ * Scala fits many problem spaces, perhaps it fits yours
+ * Type system can make the experience safer and more pleasant
+ * Multi-platforming across JVM, JS and Native is an added benefit
+ * Learn a lot, broaden your horizons
+ * Coding styles can be mixed
+
+ -->
+
+
+--------------------------
+
+Template left below
+
 <!-- _class: intro -->
 # Presentation intro slide :hamster:
 
