@@ -67,13 +67,15 @@ todos:
 
 # What is Scala?
 
-A modern programming language that combines Object-Oriented and Functional Programming paradigms. Runs on JVM, JavaScript, and Native platforms.
+- Combines Object-Oriented and Functional Programming
+- Runs on JVM, JavaScript, and Native platforms
 
 ---
 
 # Academic Roots
 
-Developed at EPFL, by Martin Odersky. Community-driven evolution rather than corporate interests.
+- Developed at EPFL, by Martin Odersky 
+- Community-driven evolution rather than corporate interests
 
 ---
 
@@ -195,7 +197,7 @@ scala-cli Hello.scala
 # sbt: The Power Tool
 
 
-![bg right:20% 70%](./img/sbt-logo-reverse.svg)
+![bg right:30% 70%](./img/sbt-logo-reverse.svg)
 
 
 Industry standard build tool for:
@@ -215,9 +217,9 @@ project/
 build.sbt            # build config
 src/
   main/
-    scala/          # source code
+    scala/           # source code
   test/
-    scala/          # test code
+    scala/           # test code
 ```
 
 ---
@@ -268,7 +270,8 @@ lazy val root = (project in file("."))
 
 # Mill: Alternative
 
-Another build tool with Python-inspired syntax. Popular in some communities but less common than sbt.
+* Multi-language build tool: Scala, Java, Kotlin, Python
+* https://github.com/com-lihaoyi/mill
 
 ---
 
@@ -333,6 +336,17 @@ Visit http://localhost:9000/hello to see your message!
 
 ---
 
+![bg 100% blur:6px brightness:0.4](./img/cask.jpg)
+
+# Li Haoyi Style: Flask but for Scala
+
+Inspired by Python's Flask
+
+https://com-lihaoyi.github.io/cask/
+
+
+---
+
 # Li Haoyi Style: Getting Started
 
 Create new directory and file:
@@ -348,11 +362,8 @@ touch app.scala
 
 ```scala
 //> using lib "com.lihaoyi::cask:0.9.2"
-
 object app extends cask.MainRoutes:
-  @cask.get("/")
-  def hello() = "Hello World!"
-  
+
   @cask.post("/greet")
   def greet(name: String) = s"Hello, $name!"
   
@@ -365,7 +376,6 @@ object app extends cask.MainRoutes:
 
 // Start server
 @main def run() = 
-  println("Starting server at http://localhost:8080")
   cask.main.Main.main(args = Array("app"))
 ```
 
@@ -382,7 +392,15 @@ curl -X POST -d "name=John" http://localhost:8080/greet
 curl http://localhost:8080/users/1
 ```
 
-[Rest of the slides remain the same]
+
+---
+![bg 100% blur:6px brightness:0.4](./img/oxen.jpg)
+
+
+# Ox
+
+Safe direct-style concurrency and resiliency for Scala on the JVM
+
 
 ---
 
@@ -396,6 +414,8 @@ touch Main.scala
 ```
 
 ---
+
+<!-- TODO change the example to more explanatory -->
 
 # Ox: Dependencies
 
@@ -496,6 +516,15 @@ def printStats(stats: Map[String, Long]): IO[Unit] = {
   } yield ()
 }
 ```
+
+---
+
+![bg right:30% 90%](./img/pekko.png)
+
+# Pekko
+
+Concurrent, distributed, resilient systems with Actor model
+
 
 ---
 
