@@ -79,6 +79,95 @@ todos:
 
 ---
 
+# Why try Scala?
+
+1. Type-Driven Development
+2. Multi-Platform Support
+3. Ecosystem Diversity
+4. Career Growth
+5. Modern Features
+
+---
+
+# Type-Driven Development
+
+```scala
+// The compiler catches errors before runtime
+case class User(name: String, age: Int)
+
+def processUser(user: User): String = {
+  // Won't compile if we try to treat age as String
+  s"${user.name} is ${user.age} years old"
+}
+```
+
+---
+
+# Multi-Platform Support
+
+```scala
+// Same code, different platforms
+object HelloWorld {
+  def sayHello(): String = "Hello, World!"
+}
+
+// JVM:    scala-cli run .
+// JS:     scala-cli --platform js run .
+// Native: scala-cli --platform native run .
+```
+
+---
+
+# Ecosystem Diversity
+
+Choose your style:
+```scala
+// Object-Oriented with Play
+class UserController extends Controller {
+  def users = Action { Ok(getUsers()) }
+}
+
+// Functional with Cats Effect
+def users[F[_]: Async]: F[List[User]] = 
+  UserRepo[F].findAll
+
+// Script-style with Cask
+@get("/users") def users() = getUserList()
+```
+
+---
+
+# Career Growth
+
+- Strong presence in fintech and streaming platforms
+- High demand in data engineering and distributed systems
+- Competetive salaries 
+
+---
+
+# Modern Features
+
+```scala
+// Pattern matching
+value match {
+  case Success(data) => process(data)
+  case Failure(err)  => handleError(err)
+}
+
+// Extension methods
+extension (n: Int) {
+  def squared: Int = n * n
+}
+
+// Context functions
+def setup(using Config): Unit = ???
+
+given Config = loadConfig()
+setup()
+```
+
+---
+
 # IDE Choice
 
 ![bg 100% blur:6px brightness:0.3](./img/ide-trim.jpg)
@@ -189,7 +278,9 @@ https://docs.scala-lang.org/getting-started/install-scala.html
 
 ```bash
 # Run a single file
-scala-cli Hello.scala
+scala Hello.scala
+scala-cli Hello.scala 
+# ☝️ if you installed from https://scala-cli.virtuslab.org/
 ```
 
 ---
@@ -211,10 +302,10 @@ Industry standard build tool for:
 # sbt: Project Structure
 
 ```markdown
+build.sbt            # build config
 project/
   build.properties   # sbt version
   plugins.sbt        # plugins
-build.sbt            # build config
 src/
   main/
     scala/           # source code
@@ -308,7 +399,6 @@ sbt run
 ```scala
 // app/controllers/HelloController.scala
 package controllers
-
 import javax.inject._
 import play.api.mvc._
 
@@ -317,7 +407,7 @@ class HelloController @Inject()(val controllerComponents: ControllerComponents)
     extends BaseController {
 
   def hello() = Action { implicit request: Request[AnyContent] =>
-    Ok("Hello, World!")
+    Ok("Hello, World!") // here goes your logic
   }
 }
 ```
@@ -331,7 +421,8 @@ class HelloController @Inject()(val controllerComponents: ControllerComponents)
 GET     /hello      controllers.HelloController.hello()
 ```
 
-Visit http://localhost:9000/hello to see your message!
+
+Run `sbt run` and visit http://localhost:9000/hello to see your message!
 
 
 ---
@@ -379,11 +470,11 @@ object app extends cask.MainRoutes:
   cask.main.Main.main(args = Array("app"))
 ```
 
-Run with: `scala-cli app.scala`
-
 ---
 
 # Li Haoyi Style: Testing the API
+
+Run with: `scala-cli app.scala`
 
 ```bash
 # Test the endpoints
@@ -446,74 +537,79 @@ Run with: `scala-cli Main.scala`
 
 ---
 
+# Cats Effect
+
+The pure asynchronous runtime for Scala
+
+https://typelevel.org/cats-effect
+
+![bg right:40% 70%](./img/cats-effect-logo.svg)
+
+
+
+---
+
 # Cats Effect: Dependencies
 
 ```scala
 //> using lib "org.typelevel::cats-effect:3.5.4"
+import cats.effect.{IO, IOApp, Resource}
+import cats.syntax.parallel._
 ```
 
 ---
-
-# Cats Effect: Program Structure
+# Cats Effect: Db connection
 
 ```scala
-import cats.effect.{IO, IOApp}
-
-object FileStats extends IOApp.Simple {
-  def run: IO[Unit] = {
-    for {
-      _ <- IO.println("Starting file analysis...")
-      files <- listFiles
-      stats <- analyzeFiles(files)
-      _ <- printStats(stats)
-    } yield ()
-  }
+object DbConnection {
+  def connect(name: String): IO[DbConnection]
+}
+class DbConnection {
+  def query[A](sql: String): IO[A] = ???
+  def close: IO[Unit]
 }
 ```
 
 ---
 
-# Cats Effect: Safe File Operations
+# Cats Effect: Read file
 
 ```scala
 import java.nio.file.{Files, Path, Paths}
 import scala.jdk.CollectionConverters.*
 
-def listFiles: IO[List[Path]] = {
+def listFiles: IO[List[UserFiles]] = {
   IO.blocking {
     Files.list(Paths.get("."))
       .iterator()
       .asScala
-      .filter(_.toString.endsWith(".scala"))
+      .filter(_.toString.endsWith(".txt"))
       .toList
   }
-}
-
-def analyzeFiles(files: List[Path]): IO[Map[String, Long]] = {
-  files.parTraverse { path =>
-    IO.blocking {
-      val size = Files.size(path)
-      path.getFileName.toString -> size
-    }
-  }.map(_.toMap)
 }
 ```
 
 ---
-
-# Cats Effect: Error Handling
+# Cats Effect: Program
 
 ```scala
-def printStats(stats: Map[String, Long]): IO[Unit] = {
-  for {
-    _ <- IO.println("\nFile Statistics:")
-    _ <- stats.toList.traverse_ { case (name, size) =>
-      IO.println(s"$name: ${size / 1024} KB")
-        .handleErrorWith { error =>
-          IO.println(s"Error processing $name: ${error.getMessage}")
-        }
+object Demo extends IOApp.Simple {
+  def createConnection(name: String): Resource[IO, DbConnection] =
+    Resource.make(DbConnection.connect(name))(_.close)
+
+  def run: IO[Unit] = {
+    val program = (
+      createConnection("users").use(_.query[User]("SELECT ...")),
+      createConnection("prefs").use(_.query[UserPrefs]("SELECT ...")),
+      listFiles
+    ).parMapN{(user, prefs, files) => 
+      s"${user.name} uses ${prefs.theme} theme in files ${files}"
     }
-  } yield ()
+
+    program.handleErrorWith(err => 
+      IO.raiseError(new Exception("Failed: " + err.getMessage))
+    )
+  }
 }
 ```
 
@@ -539,17 +635,10 @@ touch Counter.scala
 
 ---
 
-# Pekko: Dependencies
-
-```scala
-//> using lib "org.apache.pekko::pekko-actor-typed:1.0.2"
-```
-
----
-
 # Pekko: Message Protocol
 
 ```scala
+//> using lib "org.apache.pekko::pekko-actor-typed:1.0.2"
 import org.apache.pekko.actor.typed.{ActorRef, ActorSystem, Behavior}
 import org.apache.pekko.actor.typed.scaladsl.Behaviors
 
@@ -641,90 +730,24 @@ Current value: 2
 
 ---
 
-# Why try Scala?
-
-1. Type-Driven Development
-2. Multi-Platform Support
-3. Ecosystem Diversity
-4. Career Growth
-5. Modern Features
+# Learning
 
 ---
 
-# Type-Driven Development
+Coursera
 
-```scala
-// The compiler catches errors before runtime
-case class User(name: String, age: Int)
-
-def processUser(user: User): String = {
-  // Won't compile if we try to treat age as String
-  s"${user.name} is ${user.age} years old"
-}
-```
+https://www.coursera.org/learn/scala-functional-programming
 
 ---
 
-# Multi-Platform Support
+Rock the JVM
 
-```scala
-// Same code, different platforms
-object HelloWorld {
-  def sayHello(): String = "Hello, World!"
-}
-
-// JVM:    scala-cli run .
-// JS:     scala-cli --platform js run .
-// Native: scala-cli --platform native run .
-```
+https://courses.rockthejvm.com/
 
 ---
 
-# Ecosystem Diversity
+Books
 
-Choose your style:
-```scala
-// Object-Oriented with Play
-class UserController extends Controller {
-  def users = Action { Ok(getUsers()) }
-}
-
-// Functional with Cats Effect
-def users[F[_]: Async]: F[List[User]] = 
-  UserRepo[F].findAll
-
-// Script-style with Cask
-@get("/users") def users() = getUserList()
-```
-
----
-
-# Career Growth
-
-- Scala developers average 15-30% higher salaries
-- High demand in data engineering and distributed systems
-- Strong presence in fintech and streaming platforms
-
----
-
-# Modern Features
-
-```scala
-// Pattern matching
-value match {
-  case Success(data) => process(data)
-  case Failure(err)  => handleError(err)
-}
-
-// Extension methods
-extension (n: Int) {
-  def squared: Int = n * n
-}
-
-// Context functions
-given Config = loadConfig()
-def setup(): Unit = ???
-```
 
 ---
 
