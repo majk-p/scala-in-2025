@@ -482,59 +482,6 @@ curl http://localhost:8080
 curl -X POST -d "name=John" http://localhost:8080/greet
 curl http://localhost:8080/users/1
 ```
-
-
----
-![bg 100% blur:6px brightness:0.4](./img/oxen.jpg)
-
-
-# Ox
-
-Safe direct-style concurrency and resiliency for Scala on the JVM
-
-
----
-
-# Ox: Modern Concurrency
-
-Create new project:
-```bash
-mkdir ox-demo
-cd ox-demo
-touch Main.scala
-```
-
----
-
-<!-- TODO change the example to more explanatory -->
-
-# Ox: Dependencies
-
-```scala
-//> using lib "com.softwaremill.ox::ox-core:0.0.10"
-//> using lib "org.http4s::http4s-ember-client:1.0.0-M40"
-
-import ox.*
-import cats.effect.*
-import org.http4s.ember.client.EmberClientBuilder
-
-@main def download() = ox.scoped {
-  // Download multiple URLs concurrently
-  val urls = List(
-    "https://example.com",
-    "https://example.org"
-  )
-  
-  urls.parTraverse { url =>
-    println(s"Downloading $url...")
-    Thread.sleep(1000) // Simulate work
-    println(s"Downloaded $url")
-  }
-}
-```
-
-Run with: `scala-cli Main.scala`
-
 ---
 
 # Cats Effect
@@ -544,8 +491,6 @@ The pure asynchronous runtime for Scala
 https://typelevel.org/cats-effect
 
 ![bg right:40% 70%](./img/cats-effect-logo.svg)
-
-
 
 ---
 
@@ -558,7 +503,7 @@ import cats.syntax.parallel._
 ```
 
 ---
-# Cats Effect: Db connection
+# Cats Effect: database connection
 
 ```scala
 object DbConnection {
@@ -720,34 +665,200 @@ Current value: 2
 ```
 
 ---
+![bg 100% blur:6px brightness:0.4](./img/oxen.jpg)
+
+# Ox
+
+Safe direct-style concurrency and resiliency for Scala on the JVM
+
+
+---
+
+# Ox: Modern Concurrency
+
+Create new project:
+```bash
+mkdir ox-demo
+cd ox-demo
+touch Main.scala
+```
+
+---
+
+<!-- TODO change the example to more explanatory -->
+
+# Ox: Dependencies
+
+```scala
+//> using lib "com.softwaremill.ox::ox-core:0.0.10"
+//> using lib "org.http4s::http4s-ember-client:1.0.0-M40"
+
+import ox.*
+import cats.effect.*
+import org.http4s.ember.client.EmberClientBuilder
+
+@main def download() = ox.scoped {
+  // Download multiple URLs concurrently
+  val urls = List(
+    "https://example.com",
+    "https://example.org"
+  )
+  
+  urls.parTraverse { url =>
+    println(s"Downloading $url...")
+    Thread.sleep(1000) // Simulate work
+    println(s"Downloaded $url")
+  }
+}
+```
+
+Run with: `scala-cli Main.scala`
+
+
+---
+
+# That's just the beginning!
+
+<!-- _transition: fade -->
+
+![bg 100% blur:2px brightness:0.5](./img/long-way.jpg)
+
+---
 
 # Other Popular Flavors
 
-- ZIO: Effect system with powerful error handling
-- Functional streams with FS2
+![bg 100% blur:2px brightness:0.3](./img/long-way.jpg)
+
 - Spark: Big data processing
+- Functional streams with FS2
+- ZIO: Effect system with built-in dependency injection
 - Casual FP: Mix and match functional concepts
+- And a lot more
 
 ---
 
 # Learning
 
----
-
-Coursera
-
-https://www.coursera.org/learn/scala-functional-programming
+![bg 100% blur:2px brightness:0.3](./img/learning.jpg)
 
 ---
 
-Rock the JVM
+# Learning is a process
 
-https://courses.rockthejvm.com/
+There are plenty of ways to learn
+
+1) Courses
+2) Books
+3) Blogs
+4) Forums
+5) Meetups and converences
+
+---
+![bg 100% blur:3px brightness:0.2](./img/online-course.jpg)
+
+# Courses
 
 ---
 
-Books
+![bg right:30% 70%](./img/epfl-logo.svg)
+# Functional Programming in Scala Specialization
+##### (a.k.a.) Coursera Course
 
+Co-authored by Martin Odersky, author of Scala
+
+---
+
+<!-- 
+In my private opinion, two first should be mandatory.
+
+Even if you don't plan to use Scala professionally, it teaches you a lot about functional programming techinques
+-->
+
+![bg right:30% 70%](./img/epfl-logo.svg)
+# Functional Programming in Scala Specialization
+
+5 courses specialization
+
+1. Functional Programming Principles in Scala
+2. Functional Program Design in Scala
+3) Parallel programming
+4) Big Data Analysis with Scala and Spark
+5) Functional Programming in Scala Capstone
+
+https://www.coursera.org/specializations/scala
+
+---
+
+<!-- Paid, discount codes available -->
+
+![bg right:30% 70%](./img/rockthejvm.png)
+
+# Rock the JVM
+
+Led by Daniel Ciocîrlan, offers Scala courses all proficiency levels
+
+https://courses.rockthejvm.com
+
+* Scala at Light Speed
+* Scala Essentials 
+* The Scala Bundle 
+
+---
+
+![bg right:20% 70%](./img/learn-scala-dev.png)
+
+# Alvin’s Courses
+
+Created by Alvin Alexander, author of https://alvinalexander.com/, 
+["Functional Programming, Simplified"](https://alvinalexander.com/scala/functional-programming-simplified-book/), ["Scala Cookbook"](https://scalacookbook.com/)
+
+Offers free Scala courses at https://www.learnscala.dev/
+
+---
+
+# Youtube channels
+
+Dev inside you
+Rock The Jvm
+Kozłowski
+
+---
+
+# Books
+
+https://www.amazon.com/Programming-Scala-Fifth-Odersky/dp/0997148004 - Comprehensive guide by Martin Odersky
+
+https://scalawithcats.com/dist/scala-with-cats.html - by Noel Welsh, compendium on learning Cats library
+
+https://www.manning.com/books/functional-programming-in-scala - "The red book", your go-to book for hands-on, advanced functional programming 
+
+https://www.manning.com/books/grokking-functional-programming - by Michał Płachta easy way to learn functional programming for those familiar with the OOP ideas
+
+https://leanpub.com/pfp-scala - Practical FP in Scala by Gabriel Volpe for those familiar with functional programming in Scala who are yet not confident about architecting an application from scratch
+
+https://leanpub.com/feda Functional Event-Driven Architecture by Gabriel Volpe - Explore the event-driven architecture (EDA) in a purely functional way.
+
+Many more https://docs.scala-lang.org/books.html
+
+
+---
+
+# Blogs
+
+
+---
+
+# Forums
+
+slacks and discords
+
+---
+
+# Meetups & conferences
+
+https://github.com/scala/scala-lang/pull/1748
+
+Mention Scalendar
 
 ---
 
