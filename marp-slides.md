@@ -799,7 +799,7 @@ Led by Daniel Ciocîrlan, offers Scala courses all proficiency levels
 
 https://courses.rockthejvm.com
 
-* Scala at Light Speed
+* [Scala at Light Speed](https://www.youtube.com/playlist?list=PLmtsMNDRU0BxryRX4wiwrTZ661xcp6VPM) free on Youtube
 * Scala Essentials 
 * The Scala Bundle 
 
@@ -807,7 +807,7 @@ https://courses.rockthejvm.com
 
 ![bg right:20% 70%](./img/learn-scala-dev.png)
 
-# Alvin’s Courses
+# Alvin's Courses
 
 Created by Alvin Alexander, author of https://alvinalexander.com/, 
 ["Functional Programming, Simplified"](https://alvinalexander.com/scala/functional-programming-simplified-book/), ["Scala Cookbook"](https://scalacookbook.com/)
@@ -816,49 +816,199 @@ Offers free Scala courses at https://www.learnscala.dev/
 
 ---
 
+![bg right:30% 70%](./img/yt_logo_rgb_light.png)
+
 # Youtube channels
 
-Dev inside you
-Rock The Jvm
-Kozłowski
+## Community
+[Scala Space](https://www.youtube.com/@scalaspace)
+[Scala for fun and profit](https://www.youtube.com/@Scala-for-Fun-and-Profit/videos)
+
+## Learning
+[Rock The Jvm](https://www.youtube.com/@rockthejvm)
+[Jakub Kozłowski](https://www.youtube.com/@kubukoz_/videos)
+[Dev inside you](https://www.youtube.com/@DevInsideYou/videos)
+[IntelliJ IDEA, a JetBrains IDE](https://www.youtube.com/@intellijidea/videos)
+
+And more https://www.nbshare.io/blog/best-scala-tutorials-on-youtube/
 
 ---
 
 # Books
+<!-- _transition: fade -->
 
-https://www.amazon.com/Programming-Scala-Fifth-Odersky/dp/0997148004 - Comprehensive guide by Martin Odersky
+![bg 100% blur:0px brightness:0.7](./img/covers/combined.png)
 
-https://scalawithcats.com/dist/scala-with-cats.html - by Noel Welsh, compendium on learning Cats library
 
-https://www.manning.com/books/functional-programming-in-scala - "The red book", your go-to book for hands-on, advanced functional programming 
+---
 
-https://www.manning.com/books/grokking-functional-programming - by Michał Płachta easy way to learn functional programming for those familiar with the OOP ideas
+# Books
+<!-- _transition: fade -->
 
-https://leanpub.com/pfp-scala - Practical FP in Scala by Gabriel Volpe for those familiar with functional programming in Scala who are yet not confident about architecting an application from scratch
+![bg 100% blur:8px brightness:0.2](./img/covers/combined.png)
 
-https://leanpub.com/feda Functional Event-Driven Architecture by Gabriel Volpe - Explore the event-driven architecture (EDA) in a purely functional way.
+### Programming in Scala
+Comprehensive guide by Martin Odersky
 
-Many more https://docs.scala-lang.org/books.html
+### Grokking functional programming
+by Michał Płachta easy way to learn functional programming for those familiar with the OOP ideas
+
+### Functional Programming Strategies In Scala with Cats
+by Noel Welsh, compendium on learning Cats library
+
+
+---
+
+# Books
+![bg 100% blur:8px brightness:0.2](./img/covers/combined.png)
+
+### Functional programming in Scala 
+a.k.a. "The red book", your go-to book for hands-on, advanced functional programming 
+
+
+### Practical FP in Scala
+For those familiar with functional programming in Scala who are yet not confident about architecting an application from scratch
+
+### Functional Event-Driven Architecture
+Explore the event-driven architecture (EDA) in a purely functional way.
+
+Many more https://docs.scala-lang.org/books.html https://whatpixel.com/best-scala-books/
 
 
 ---
 
 # Blogs
+<!-- _transition: fade -->
+![bg 100% blur:0px brightness:0.7](./img/blog.jpg)
+
+---
+
+# Blogs
+<!-- _transition: fade -->
+![bg 100% blur:3px brightness:0.2](./img/blog.jpg)
+
+<style>
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* font-size: 16px; */
+    gap: 10px;
+  }
+  .tag-cloud a {
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+  }
+  .tag-cloud a:hover {
+    text-decoration: underline;
+  }
+  .font-size-18 { font-size: 18px; }
+  .font-size-20 { font-size: 20px; }
+  .font-size-22 { font-size: 22px; }
+  .font-size-24 { font-size: 24px; }
+  .font-size-26 { font-size: 26px; }
+  .font-size-28 { font-size: 28px; }
+  .font-size-30 { font-size: 30px; }
+  .font-size-32 { font-size: 32px; }
+
+</style>
+
+<div class="tag-cloud">
+  <a href="https://www.softinio.com" class="font-size-18">Salar Rahmanian</a>
+  <a href="https://www.scala-lang.org/blog/" class="font-size-22">Scala Lang</a>
+  <a href="https://typelevel.org/blog/" class="font-size-20">Typelevel</a>
+  <a href="https://mpilquist.github.io/" class="font-size-24">Michael Pilquist</a>
+  <a href="http://justinhj.github.io/" class="font-size-26">Justin Heyes-Jones</a>
+  <a href="https://www.chris-kipp.io/" class="font-size-28">Chris Kipp</a>
+  <a href="https://blog.indoorvivants.com" class="font-size-30">Anton Sviridov</a>
+  <a href="https://jamesward.com" class="font-size-32">James Ward</a>
+  <a href="https://eed3si9n.com/" class="font-size-18">Eugene Yokota</a>
+  <a href="https://alexn.org/blog/" class="font-size-22">Alexandru Nedelcu</a>
+  <a href="https://blog.kubukoz.com/" class="font-size-20">Jakub Kozłowski</a>
+  <a href="https://yadukrishnan.live/" class="font-size-24">Yadu Krishnan</a>
+  <a href="https://blog.michal.pawlik.dev/" class="font-size-26">Michał Pawlik</a>
+  <a href="https://www.lihaoyi.com/" class="font-size-28">Haoyi Li</a>
+  <a href="https://blog.rockthejvm.com/" class="font-size-30">Rock The JVM Blog</a>
+  <a href="https://toniogela.dev/" class="font-size-32">Antonio Gelameris</a>
+  <a href="https://juliano-alves.com/" class="font-size-18">Juliano Alves</a>
+  <a href="https://inner-product.com/" class="font-size-22">Inner Product</a>
+  <a href="https://rossabaker.com/" class="font-size-20">Ross Baker</a>
+  <a href="https://xebia.com/blog/" class="font-size-24">Xebia</a>
+  <a href="https://chollinger.com/blog/" class="font-size-26">Chistian Hollinger</a>
+  <a href="https://antonkw.github.io/" class="font-size-28">Anton Kovalevsky</a>
+  <a href="https://medium.com/tag/scala" class="font-size-30">Medium</a>
+  <a href="https://virtuslab.com/blog/" class="font-size-32">VirtusLab</a>
+  <a href="https://www.madewithtea.com" class="font-size-18">Jendrik Poloczek</a>
+  <a href="https://blog.pierre-ricadat.com/" class="font-size-22">Pierre Ricadat</a>
+  <a href="https://lachlan.hashnode.dev" class="font-size-20">Lachlan O'Dea</a>
+  <a href="https://softwaremill.com/blog/" class="font-size-24">SoftwareMill</a>
+  <a href="https://github.com/rssh/notes" class="font-size-26">Ruslan Shevchenko</a>
+  <a href="https://neander.tech" class="font-size-28">Neandertech</a>
+  <a href="https://scalameta.org/metals/blog/" class="font-size-30">Scala Metals</a>
+  <a href="https://podcasters.spotify.com/pod/show/julien-truffaut" class="font-size-32">Scala for Fun and Profit</a>
+  <a href="https://cloudmark.github.io/" class="font-size-18">Mark Galea</a>
+  <a href="https://blog.rhetoricalmusings.com" class="font-size-22">A Developer's Experience</a>
+  <a href="https://day-to-day-stuff.blogspot.com/" class="font-size-20">Erik van Oosten</a>
+</div>
+
+
+---
+
+# Blogs
+![bg 100% blur:3px brightness:0.2](./img/blog.jpg)
+
+https://www.scalanews.net/Resources/Blog_Directory.html
+
+---
+
+# Community
+
+Your go-to list of forums, chat rooms, local user groups, and conferences
+
+https://www.scala-lang.org/community
+
 
 
 ---
 
 # Forums
 
-slacks and discords
+[Scala Poland 🇵🇱](https://join.slack.com/t/scala-poland/shared_invite/zt-1jeq834yd-iOTH4U1Gto3YWu_lEVY5oA) on Slack
+[Scala](https://discord.com/invite/scala) on discord
+[Reddit r/scala](https://old.reddit.com/r/scala/)
+
+---
+
+# Meetups
+
+
+- London Scala User Group
+- Warsaw Scala Enthusiasts
+- Kraków Scala User Group
+- Wrocław Scala User Group
+- Bay Area Scala
+- SF Scala
+- Scala Bay
+- Atlanta Scala
+- Dallas Scala Enthusiasts
+- Functional World (online)
 
 ---
 
 # Meetups & conferences
 
-https://github.com/scala/scala-lang/pull/1748
+[Scalendar](https://scalac.io/blog/category/events/) by Scalac
 
-Mention Scalendar
+
+---
+
+# News
+
+[Scala Times](https://scalatimes.com/) by Softwaremill
+[This week in Scala](https://medium.com/@petr-zapletal) by Petr Zapletal
+[Scala feed](https://bsky.app/profile/michal.pawlik.dev/feed/scala-feed) on Bluesky
 
 ---
 
