@@ -79,6 +79,14 @@ todos:
 
 ---
 
+# Before we move on ☝️
+
+Something too obvious? something missing? 
+Ping me on Slack
+![bg right:30% 70%](./img/scala-poland-qr.png)
+
+---
+
 # Why try Scala?
 
 1. Type-Driven Development
@@ -93,12 +101,9 @@ todos:
 
 ```scala
 // The compiler catches errors before runtime
-case class User(name: String, age: Int)
+case class User(name: String, age: PosInt)
 
-def processUser(user: User): String = {
-  // Won't compile if we try to treat age as String
-  s"${user.name} is ${user.age} years old"
-}
+val user = User("John Doe", -1) // this won't compile
 ```
 
 ---
@@ -210,7 +215,7 @@ Install through your editor's extension marketplace.
 # Metals: Pros & Cons
 
 ✅ Always in sync with compiler, supports latest features
-❌ Experience varies between editors, more frequent project reimports
+❌ Experience varies between editors
 
 
 ---
@@ -979,10 +984,11 @@ https://www.scala-lang.org/community
 [Scala](https://discord.com/invite/scala) on discord
 [Reddit r/scala](https://old.reddit.com/r/scala/)
 
+<!-- second slide with a more comprehensive list of forums -->
+
 ---
 
-# Meetups
-
+# Meetups 🎙️
 
 - London Scala User Group
 - Warsaw Scala Enthusiasts
@@ -1010,6 +1016,7 @@ https://www.scala-lang.org/community
 [This week in Scala](https://medium.com/@petr-zapletal) by Petr Zapletal
 [Scala feed](https://bsky.app/profile/michal.pawlik.dev/feed/scala-feed) on Bluesky
 
+<!-- roadmap if ready -->
 ---
 
 # Start Your Journey
