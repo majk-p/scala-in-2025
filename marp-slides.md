@@ -453,8 +453,18 @@ Read more in [12 years of the com.lihaoyi Scala Platform](https://www.lihaoyi.co
 
 # Play Framework: Web Development
 
+Full-stack framework with all of the components you need to build a Web Application or a REST service
+
 
 ![bg right:20% 70%](./img/playframework.png)
+
+
+---
+
+# Play Framework: Stack
+
+
+![bg right contain](./img/play-stack.svg)
 
 
 ---
@@ -553,6 +563,7 @@ def listFiles: IO[List[UserFiles]] = {
 ```
 
 ---
+
 # Cats Effect: Program
 
 ```scala
@@ -799,6 +810,8 @@ Run with: `scala-cli Main.scala`
 # Learning
 
 ![bg 100% blur:2px brightness:0.3](./img/learning.jpg)
+
+<!-- _transition: fade -->
 
 ---
 
