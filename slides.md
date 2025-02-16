@@ -83,11 +83,14 @@ todos:
 
 Something too obvious? something missing? 
 Ping me on Slack
-![bg right:30% 70%](./img/scala-poland-qr.png)
+![bg right:40% 80%](./img/scala-poland-qr.png)
 
 ---
 
 # Why try Scala?
+
+![bg right:30% 70%](./img/scala-spiral.png)
+
 
 1. Type-Driven Development
 2. Multi-Platform Support
@@ -133,8 +136,7 @@ class UserController extends Controller {
 }
 
 // Functional with Cats Effect
-def users[F[_]: Async]: F[List[User]] = 
-  UserRepo[F].findAll
+def users[F[_]: Async]: F[List[User]] = UserRepo[F].findAll
 
 // Script-style with Cask
 @get("/users") def users() = getUserList()
@@ -163,10 +165,10 @@ value match {
 extension (n: Int) {
   def squared: Int = n * n
 }
+5.squared
 
 // Context functions
 def setup(using Config): Unit = ???
-
 given Config = loadConfig()
 setup()
 ```
@@ -202,7 +204,7 @@ https://www.jetbrains.com/help/idea/get-started-with-scala.html
 
 ---
 
-# Metals: Modern Alternative
+# IDE Choice: Metals
 
 ![bg right:20% 70%](./img/scalameta-logo.png)
 
@@ -380,61 +382,11 @@ Coding styles and frameworks
 
 ---
 
-# Play Framework: Web Development
-
-
-![bg right:20% 70%](./img/playframework.png)
-
-
----
-
-# Play Framework: Web Development
-
-Start with sbt:
-```bash
-sbt new play-scala-seed.g8
-cd play-scala-seed
-sbt run
-```
-
----
-
-# Play Framework: Hello World
-
-```scala
-// app/controllers/HelloController.scala
-package controllers
-import javax.inject._
-import play.api.mvc._
-
-@Singleton
-class HelloController @Inject()(val controllerComponents: ControllerComponents) 
-    extends BaseController {
-
-  def hello() = Action { implicit request: Request[AnyContent] =>
-    Ok("Hello, World!") // here goes your logic
-  }
-}
-```
-
----
-
-# Play Framework: Route Configuration
-
-```groovy
-# conf/routes
-GET     /hello      controllers.HelloController.hello()
-```
-
-
-Run `sbt run` and visit http://localhost:9000/hello to see your message!
-
-
----
-
 ![bg 100% blur:6px brightness:0.4](./img/cask.jpg)
 
-# Li Haoyi Style: Flask but for Scala
+# Cask: Flask but for Scala
+
+Li Haoyi Style
 
 Inspired by Python's Flask
 
@@ -487,6 +439,67 @@ curl http://localhost:8080
 curl -X POST -d "name=John" http://localhost:8080/greet
 curl http://localhost:8080/users/1
 ```
+
+---
+
+# Li Haoyi: Development platform
+
+There's more: Scalatags, FastParse, uTest, uPickle, Ammonite, Sourcecode, Mill, PPrint, OS-Lib, Requests-Scala, Cask, MainArgs, ScalaSql
+
+Read more in [12 years of the com.lihaoyi Scala Platform](https://www.lihaoyi.com/post/12yearsofthecomlihaoyiScalaPlatform.html#what-is-the-comlihaoyi-platform)
+
+
+---
+
+# Play Framework: Web Development
+
+
+![bg right:20% 70%](./img/playframework.png)
+
+
+---
+
+# Play Framework: Web Development
+
+Start with sbt:
+```bash
+sbt new play-scala-seed.g8
+cd play-scala-seed
+sbt run
+```
+
+---
+
+# Play Framework: Hello World
+
+```scala
+// app/controllers/HelloController.scala
+package controllers
+import javax.inject._
+import play.api.mvc._
+
+@Singleton
+class HelloController @Inject()(val controllerComponents: ControllerComponents) 
+    extends BaseController {
+
+  def hello() = Action { implicit request: Request[AnyContent] =>
+    Ok("Hello, World!") // here goes your logic
+  }
+}
+```
+
+---
+
+# Play Framework: Route Configuration
+
+```groovy
+# conf/routes
+GET     /hello      controllers.HelloController.hello()
+```
+
+Run `sbt run` and visit http://localhost:9000/hello to see your message!
+
+
 ---
 
 # Cats Effect
@@ -570,6 +583,45 @@ object Demo extends IOApp.Simple {
 # Pekko
 
 Concurrent, distributed, resilient systems with Actor model
+
+---
+
+![bg 90%](./img/actor-model-0.svg)
+
+
+<!-- _transition: fade -->
+
+---
+
+![bg 90%](./img/actor-model-1.svg)
+
+
+<!-- _transition: fade -->
+
+---
+
+![bg 90%](./img/actor-model-2.svg)
+
+
+<!-- _transition: fade -->
+
+---
+
+![bg 90%](./img/actor-model-3.svg)
+
+
+<!-- _transition: fade -->
+
+---
+
+![bg 90%](./img/actor-model-4.svg)
+
+
+<!-- _transition: fade -->
+
+---
+
+![bg 90%](./img/actor-model-5.svg)
 
 
 ---
@@ -737,6 +789,8 @@ Run with: `scala-cli Main.scala`
 - Spark: Big data processing
 - Functional streams with FS2
 - ZIO: Effect system with built-in dependency injection
+- Kyo: Novel approach based on algebraic effects
+- Gears: Experimental async programming for Scala
 - Casual FP: Mix and match functional concepts
 - And a lot more
 
@@ -747,6 +801,9 @@ Run with: `scala-cli Main.scala`
 ![bg 100% blur:2px brightness:0.3](./img/learning.jpg)
 
 ---
+
+![bg 100% blur:5px brightness:0.2](./img/learning.jpg)
+
 
 # Learning is a process
 
@@ -810,6 +867,24 @@ https://courses.rockthejvm.com
 
 ---
 
+
+![bg right:30% 70%](./img/rockthejvm.png)
+
+# Rock the JVM: Discount code!
+
+<!-- _transition: fade -->
+
+---
+
+
+![bg right:30% 70%](./img/rockthejvm.png)
+
+# Rock the JVM: Discount code!
+
+`FUNCTIONAL_TALKS`
+
+---
+
 ![bg right:20% 70%](./img/learn-scala-dev.png)
 
 # Alvin's Courses
@@ -825,15 +900,11 @@ Offers free Scala courses at https://www.learnscala.dev/
 
 # Youtube channels
 
-## Community
-[Scala Space](https://www.youtube.com/@scalaspace)
-[Scala for fun and profit](https://www.youtube.com/@Scala-for-Fun-and-Profit/videos)
+## Podcasts & talks
+[Scala Space](https://www.youtube.com/@scalaspace) · [Scala for fun and profit](https://www.youtube.com/@Scala-for-Fun-and-Profit/videos) · [Softwafemill](https://www.youtube.com/@SoftwareMillCom/videos) · [Scaladays](https://www.youtube.com/@ScalaDaysConferences)
 
 ## Learning
-[Rock The Jvm](https://www.youtube.com/@rockthejvm)
-[Jakub Kozłowski](https://www.youtube.com/@kubukoz_/videos)
-[Dev inside you](https://www.youtube.com/@DevInsideYou/videos)
-[IntelliJ IDEA, a JetBrains IDE](https://www.youtube.com/@intellijidea/videos)
+[Rock The Jvm](https://www.youtube.com/@rockthejvm) · [Jakub Kozłowski](https://www.youtube.com/@kubukoz_/videos) · [Dev inside you](https://www.youtube.com/@DevInsideYou/videos) · [IntelliJ IDEA, a JetBrains IDE](https://www.youtube.com/@intellijidea/videos)
 
 And more https://www.nbshare.io/blog/best-scala-tutorials-on-youtube/
 
@@ -943,7 +1014,7 @@ Many more https://docs.scala-lang.org/books.html https://whatpixel.com/best-scal
   <a href="https://xebia.com/blog/" class="font-size-24">Xebia</a>
   <a href="https://chollinger.com/blog/" class="font-size-26">Chistian Hollinger</a>
   <a href="https://antonkw.github.io/" class="font-size-28">Anton Kovalevsky</a>
-  <a href="https://medium.com/tag/scala" class="font-size-30">Medium</a>
+  <a href="https://medium.com/tag/scala" class="font-size-30">Medium (tag Scala)</a>
   <a href="https://virtuslab.com/blog/" class="font-size-32">VirtusLab</a>
   <a href="https://www.madewithtea.com" class="font-size-18">Jendrik Poloczek</a>
   <a href="https://blog.pierre-ricadat.com/" class="font-size-22">Pierre Ricadat</a>
@@ -975,7 +1046,6 @@ Your go-to list of forums, chat rooms, local user groups, and conferences
 https://www.scala-lang.org/community
 
 
-
 ---
 
 # Forums
@@ -983,8 +1053,18 @@ https://www.scala-lang.org/community
 [Scala Poland 🇵🇱](https://join.slack.com/t/scala-poland/shared_invite/zt-1jeq834yd-iOTH4U1Gto3YWu_lEVY5oA) on Slack
 [Scala](https://discord.com/invite/scala) on discord
 [Reddit r/scala](https://old.reddit.com/r/scala/)
+[Scala Users Discourse](https://users.scala-lang.org/)
+[Scala Contributors Discourse](https://contributors.scala-lang.org/)
 
 <!-- second slide with a more comprehensive list of forums -->
+
+---
+
+# Forums
+
+
+**[IntelliJ](https://discord.gg/aUKpZzeHCK)** · **[Scalameta](https://discord.gg/RFpSVth)** · **[Play Framework](https://discord.gg/g5s2vtZ4Fa)** · **[Typelevel](https://discord.gg/XF3CXcMzqD)** · **[ZIO](https://discord.gg/2ccFBr4)** · **[Laminar](https://discord.gg/JTrUxhq7sj)** · **[Smithy4s](https://discord.gg/wvVga94s8r)** · **[indigo](https://discord.gg/b5CD47g)** · **[Scala Space](https://discord.gg/vcHsmEQx)** · **[Business4s](https://bit.ly/business4s-discord)** · **[Creative Scala](https://discord.gg/rRhcFbJxVG)** 
+
 
 ---
 
@@ -1017,11 +1097,38 @@ https://www.scala-lang.org/community
 [Scala feed](https://bsky.app/profile/michal.pawlik.dev/feed/scala-feed) on Bluesky
 
 <!-- roadmap if ready -->
+
+---
+
+# Wrapping up
+
+![bg 100% blur:2px brightness:0.3](./img/wrapping.jpg)
+
 ---
 
 # Start Your Journey
 
-- Begin with scala-cli and simple scripts
-- Pick a style that feels natural
-- Join the community (Discord, Reddit) <!-- TODO add links -->
-- Learn by building real projects
+1) Begin with scala-cli and simple scripts
+2) Pick a style that feels natural
+3) Join the community (Slack, Discord, Reddit)
+4) Learn by building real projects
+
+---
+
+
+# Thank you!
+
+<style scoped>
+/* Styling for centering (required in default theme) */
+h1, h2, h3, h4, h5, p, ul, li {
+  text-align: center;
+}
+</style>
+
+Keep in touch! 🤝
+
+Blog: [blog.michal.pawlik.dev](https://blog.michal.pawlik.dev)
+Linkedin: [Michał Pawlik](https://www.linkedin.com/in/michał-pawlik/)
+Github: [majk-p](https://github.com/majk-p)
+Bluesky: [michal.pawlik.dev](https://bsky.app/profile/michal.pawlik.dev)
+
