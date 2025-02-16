@@ -269,7 +269,7 @@ https://docs.scala-lang.org/getting-started/install-scala.html
 
 ```scala
 // add dependencies
-//> using lib com.lihaoyi::pprint:0.9.0
+//> using dep com.lihaoyi::pprint:0.9.0
 
 // define scala version
 //> using scala 3.3.5
@@ -409,7 +409,7 @@ touch app.scala
 # Li Haoyi Style: Web Server with Cask
 
 ```scala
-//> using lib "com.lihaoyi::cask:0.9.2"
+//> using dep "com.lihaoyi::cask:0.9.2"
 object app extends cask.MainRoutes:
 
   @cask.post("/greet")
@@ -525,7 +525,7 @@ https://typelevel.org/cats-effect
 # Cats Effect: Dependencies
 
 ```scala
-//> using lib "org.typelevel::cats-effect:3.5.4"
+//> using dep "org.typelevel::cats-effect:3.5.4"
 import cats.effect.{IO, IOApp, Resource}
 import cats.syntax.parallel._
 ```
@@ -651,7 +651,7 @@ touch Counter.scala
 # Pekko: Message Protocol
 
 ```scala
-//> using lib "org.apache.pekko::pekko-actor-typed:1.0.2"
+//> using dep "org.apache.pekko::pekko-actor-typed:1.0.2"
 import org.apache.pekko.actor.typed.{ActorRef, ActorSystem, Behavior}
 import org.apache.pekko.actor.typed.scaladsl.Behaviors
 
@@ -731,7 +731,7 @@ Incrementing counter to 1
 Incrementing counter to 2
 Current value: 2
 ```
-
+<!-- 
 ---
 ![bg 100% blur:6px brightness:0.4](./img/oxen.jpg)
 
@@ -753,13 +753,11 @@ touch Main.scala
 
 ---
 
-<!-- TODO change the example to more explanatory -->
-
 # Ox: Dependencies
 
 ```scala
-//> using lib "com.softwaremill.ox::ox-core:0.0.10"
-//> using lib "org.http4s::http4s-ember-client:1.0.0-M40"
+//> using dep "com.softwaremill.ox::ox-core:0.0.10"
+//> using dep "org.http4s::http4s-ember-client:1.0.0-M40"
 
 import ox.*
 import cats.effect.*
@@ -781,7 +779,7 @@ import org.http4s.ember.client.EmberClientBuilder
 ```
 
 Run with: `scala-cli Main.scala`
-
+ -->
 
 ---
 
@@ -826,7 +824,7 @@ There are plenty of ways to learn
 2) Books
 3) Blogs
 4) Forums
-5) Meetups and converences
+5) Meetups and conferences
 
 ---
 ![bg 100% blur:3px brightness:0.2](./img/online-course.jpg)
