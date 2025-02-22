@@ -731,55 +731,6 @@ Incrementing counter to 1
 Incrementing counter to 2
 Current value: 2
 ```
-<!-- 
----
-![bg 100% blur:6px brightness:0.4](./img/oxen.jpg)
-
-# Ox
-
-Safe direct-style concurrency and resiliency for Scala on the JVM
-
-
----
-
-# Ox: Modern Concurrency
-
-Create new project:
-```bash
-mkdir ox-demo
-cd ox-demo
-touch Main.scala
-```
-
----
-
-# Ox: Dependencies
-
-```scala
-//> using dep "com.softwaremill.ox::ox-core:0.0.10"
-//> using dep "org.http4s::http4s-ember-client:1.0.0-M40"
-
-import ox.*
-import cats.effect.*
-import org.http4s.ember.client.EmberClientBuilder
-
-@main def download() = ox.scoped {
-  // Download multiple URLs concurrently
-  val urls = List(
-    "https://example.com",
-    "https://example.org"
-  )
-  
-  urls.parTraverse { url =>
-    println(s"Downloading $url...")
-    Thread.sleep(1000) // Simulate work
-    println(s"Downloaded $url")
-  }
-}
-```
-
-Run with: `scala-cli Main.scala`
- -->
 
 ---
 
