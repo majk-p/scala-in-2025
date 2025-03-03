@@ -81,8 +81,8 @@ todos:
 
 # Before we move on ☝️
 
-Something too obvious? something missing? 
-Ping me on Slack
+Something too obvious? missing? 
+Let me know!
 ![bg right:40% 80%](./img/scala-poland-qr.png)
 
 ---
@@ -146,7 +146,7 @@ def users[F[_]: Async]: F[List[User]] = UserRepo[F].findAll
 
 # Career Growth
 
-- Strong presence in fintech and streaming platforms
+- Strong presence in fintech, streaming platforms, data engineering
 - High demand in data engineering and distributed systems
 - Competetive salaries 
 
@@ -242,13 +242,6 @@ Some research entry points:
   .tag-cloud a:hover {
     text-decoration: underline;
   }
-  .font-size-18 { font-size: 18px; }
-  .font-size-20 { font-size: 20px; }
-  .font-size-22 { font-size: 22px; }
-  .font-size-24 { font-size: 24px; }
-  .font-size-26 { font-size: 26px; }
-  .font-size-28 { font-size: 28px; }
-  .font-size-30 { font-size: 30px; }
   .font-size-32 { font-size: 32px; }
 
 </style>
@@ -280,6 +273,9 @@ Some research entry points:
 <a href="https://disneystreaming.github.io/smithy4s" class="font-size-32">Disney Streaming</a>
 <a href="https://github.com/salesforce/orchard" class="font-size-32">Salesforce</a>
 <a href="https://github.com/ThoughtWorksInc/Dsl.scala" class="font-size-32">Thoughtworks</a>
+<a href="https://swissborg.com/" class="font-size-32">SwissBorg</a>
+<a href="https://xebia.com/blog/" class="font-size-32">Xebia Functional</a>
+<a href="https://careers.wolt.com/en/blog/tech/scala-at-wolt-our-scala-organization-part-i" class="font-size-32">Wolt</a>
 </div>
 
 
@@ -627,92 +623,90 @@ Run `sbt run` and visit http://localhost:9000/hello to see your message!
 
 ---
 
-<!-- REFACTORING NOTE
+# Tapir 
 
-Remove Cats Effect slides - too complicated
 
-Add tapir to right after play to show type-level endpoint definitions
-Add something on scala.js (simple website? consider https://laminar.dev/)
-Mention PurpleKingdomGames for making games
+![bg right:40% 70%](./img/tapir.svg)
+<!-- ![bg right contain](./img/tapir.svg) -->
 
- -->
 
----
-
-# Cats Effect
-
-The pure asynchronous runtime for Scala
-
-https://typelevel.org/cats-effect
-
-![bg right:40% 70%](./img/cats-effect-logo.svg)
+Programmer-friendly, reasonably type-safe API to expose, consume and document HTTP endpoints
 
 ---
 
-# Cats Effect: Dependencies
+# Tapir: Dependencies
 
 ```scala
-//> using dep "org.typelevel::cats-effect:3.5.4"
-import cats.effect.{IO, IOApp, Resource}
-import cats.syntax.parallel._
-```
-
----
-# Cats Effect: database connection
-
-```scala
-object DbConnection {
-  def connect(name: String): IO[DbConnection]
-}
-class DbConnection {
-  def query[A](sql: String): IO[A] = ???
-  def close: IO[Unit]
-}
+//> using scala 3.6.3
+//> using dep com.softwaremill.sttp.tapir::tapir-http4s-server:1.11.15
+//> using dep org.http4s::http4s-ember-server:0.23.30
+//> using dep com.softwaremill.sttp.tapir::tapir-json-circe:1.11.15
+//> using dep ch.qos.logback:logback-classic:1.5.16
 ```
 
 ---
 
-# Cats Effect: Read file
+# Tapir: Endpoint definition
 
 ```scala
-import java.nio.file.{Files, Path, Paths}
-import scala.jdk.CollectionConverters.*
+object Endpoints {
+  val booksListing: PublicEndpoint[String, Unit, List[Book], Any] = endpoint.get
+    .in("books" / "list" / query[String]("filter"))
+    .out(jsonBody[List[Book]])
+  
+  val booksListingServerEndpoint: ServerEndpoint[Any, IO] = 
+    booksListing.serverLogicSuccess(filter => Library.books(filter))
 
-def listFiles: IO[List[UserFiles]] = {
-  IO.blocking {
-    Files.list(Paths.get("."))
-      .iterator()
-      .asScala
-      .filter(_.toString.endsWith(".txt"))
-      .toList
-  }
+  val all: List[ServerEndpoint[Any, IO]] = List(booksListingServerEndpoint)
+}
+
+object Library {
+  case class Author(name: String)
+  case class Book(title: String, year: Int, author: Author)
+
+  def books(filter: String): IO[List[Book]] = /* irrelevant */
 }
 ```
 
 ---
 
-# Cats Effect: Program
+# Tapir: Main application
 
 ```scala
-object Demo extends IOApp.Simple {
-  def createConnection(name: String): Resource[IO, DbConnection] =
-    Resource.make(DbConnection.connect(name))(_.close)
+object Main extends IOApp {
 
-  def run: IO[Unit] = {
-    val program = (
-      createConnection("users").use(_.query[User]("SELECT ...")),
-      createConnection("prefs").use(_.query[UserPrefs]("SELECT ...")),
-      listFiles
-    ).parMapN{(user, prefs, files) => 
-      s"${user.name} uses ${prefs.theme} theme in files ${files}"
-    }
+  override def run(args: List[String]): IO[ExitCode] =
 
-    program.handleErrorWith(err => 
-      IO.raiseError(new Exception("Failed: " + err.getMessage))
-    )
-  }
+    val routes = Http4sServerInterpreter[IO]().toRoutes(Endpoints.all)
+
+    val port = sys.env
+      .get("HTTP_PORT")
+      .flatMap(_.toIntOption)
+      .flatMap(Port.fromInt)
+      .getOrElse(port"8080")
+
+    EmberServerBuilder
+      .default[IO]
+      .withHost(Host.fromString("localhost").get)
+      .withPort(port)
+      .withHttpApp(Router("/" -> routes).orNotFound)
+      .build
+      .use{ server =>
+        for
+          _ <- IO.println(s"Server started at http://localhost:${server.address.getPort}. Press ENTER key to exit.")
+          _ <- IO.readLine
+        yield ()
+      }.as(ExitCode.Success)
 }
 ```
+
+---
+
+# Adopt Tapir!
+
+https://adopt-tapir.softwaremill.com
+
+![bg right:40% 70%](./img/tapir.svg)
 
 ---
 
@@ -861,6 +855,91 @@ Current value: 2
 
 ---
 
+# Laminar: User Interfaces for Scala.js 
+
+
+![bg right:20% 70%](./img/laminar-logo.png)
+
+Native Scala.js library for building user interfaces
+
+---
+
+# Laminar: Example
+
+```scala
+package example
+
+import com.raquo.laminar.api.L.{*, given}
+
+object CounterView {
+
+  def apply(): HtmlElement = {
+    div(
+      cls("CounterView"),
+      Counter(label = "Foo", initialStep = 1),
+    )
+  }
+
+  /* Counter implementation */
+}
+```
+
+---
+
+# Laminar: Example
+
+```scala
+package example
+
+import com.raquo.laminar.api.L.{*, given}
+
+object CounterView {
+  def Counter(label: String, initialStep: Int): HtmlElement = {
+    val allowedSteps = List(1, 2, 3, 5, 10)
+    val stepVar = Var(initialStep)
+    val diffBus = new EventBus[Int]
+    val countSignal: Signal[Int] = diffBus.events.scanLeft(initial = 0)(_ + _)
+
+    div(
+      cls("Counter"),
+      p(
+        "Step: ",
+        select(
+          value <-- stepVar.signal.map(_.toString),
+          onChange.mapToValue.map(_.toInt) --> stepVar,
+          allowedSteps.map { step => option(value := step.toString, step) }
+        )
+      ),
+      p(
+        label + ": ",
+        b(text <-- countSignal),
+        " ",
+        button("–", onClick.mapTo(-1 * stepVar.now()) --> diffBus),
+        button("+", onClick(_.sample(stepVar.signal)) --> diffBus)
+      )
+    )
+  }
+}
+```
+
+---
+
+# Laminar: Example
+
+![](./img/laminar-counter.png)
+
+
+---
+
+# Scala.js: Resources
+
+- https://www.youtube.com/watch?v=AQix1WaWuOo - Daniel Ciocîrlan GENERATIVE ART WITH SCALA, NO AI REQUIRED
+- https://www.lihaoyi.com/hands-on-scala-js - Hands on Scala.js by Li Haoyi
+- https://tyrian.indigoengine.io/documentation - Tyrian, Elm-inspired frontend framework
+
+
+---
+
 # That's just the beginning!
 
 <!-- _transition: fade -->
@@ -873,12 +952,14 @@ Current value: 2
 
 ![bg 100% blur:2px brightness:0.3](./img/long-way.jpg)
 
-- Spark: Big data processing
-- Functional streams with FS2
-- ZIO: Effect system with built-in dependency injection
-- Kyo: Novel approach based on algebraic effects
-- Gears: Experimental async programming for Scala
+- [Spark](https://spark.apache.org/docs/latest/quick-start.html): Big data processing
+- Functional streams with [FS2](https://fs2.io/#/)
+- [Cats Effect](https://typelevel.org/cats-effect/): The pure asynchronous runtime for Scala
+- [ZIO](https://zio.dev/): Effect system with built-in dependency injection
+- [Kyo](https://getkyo.io): Novel approach based on algebraic effects
+- [Gears](https://lampepfl.github.io/gears/): Experimental async programming for Scala
 - Casual FP: Mix and match functional concepts
+- [Indigo](https://indigoengine.io/): Make games with Scala
 - And a lot more
 
 ---
