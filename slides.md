@@ -175,6 +175,120 @@ setup()
 
 ---
 
+# Is Scala still relevant?
+<!-- _transition: fade -->
+
+![bg 100% blur:2px brightness:0.3](./img/pexels-pixabay-237258.jpg)
+
+---
+
+# Companies using Scala
+
+
+![bg 100% blur:5px brightness:0.3](./img/pexels-pixabay-237258.jpg)
+
+<!-- 
+Some research entry points:
+- https://en.wikipedia.org/wiki/Scala_(programming_language)#Companies
+- https://www.phind.com/search/cm7t37cup00002v6mor2h2097
+- https://github.com/uhub/awesome-scala
+- https://www.perplexity.ai/search/i-m-working-on-an-introduction-GZXmiB0QTRqiG7.XyvUP3g
+- https://github.com/stkeky/best-of-scala
+ -->
+<!-- 
+[Twitter/X](https://github.com/twitter/finagle)
+[The Guardian](https://github.com/guardian/grid)
+[Lichess](https://github.com/lichess-org/lila)
+[Netflix](https://github.com/Netflix/atlas)
+[Linkedin](https://github.com/linkedin/isolation-forest)
+[Coursera](https://github.com/coursera/courier)
+[Apple](https://jobs.apple.com/en-us/details/200589146/sr-development-data-engineer-music-books-podcasts-content-data-services?team=SFTWR)
+[SiriusXM](https://siriusxm.github.io/snapshot4s/)
+[Zalando](https://engineering.zalando.com/posts/2018/01/why-we-do-scala.html)
+[Morgan Stanley](https://github.com/morganstanley/optimus-cirrus)
+[JP Morgan](https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/requisitions?keyword=Scala&mode=location)
+[HMRC and more of gov.uk](https://github.com/hmrc)
+[Duolingo](https://blog.duolingo.com/rewriting-duolingos-engine-in-scala/)
+[M1 Finance](https://github.com/m1finance)
+[LEGO](https://github.com/LEGO/woof)
+[Airbnb](https://github.com/airbnb/chronon)
+[Spotify](https://github.com/spotify/scio)
+[PayPal](https://github.com/paypal/squbs)
+[Softwaremill](https://github.com/softwaremill)
+[Virtuslab](https://virtuslab.com/expertise/scala/)
+[Databricks](https://github.com/databricks/sjsonnet)
+[Tesla](https://www.infoq.com/presentations/tesla-vpp/)
+[Workday](https://github.com/Workday/warp-core)
+[Disney Streaming](https://disneystreaming.github.io/smithy4s)
+[Salesforce](https://github.com/salesforce/orchard)
+[Thoughtworks](https://github.com/ThoughtWorksInc/Dsl.scala) -->
+
+
+<style>
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* font-size: 16px; */
+    gap: 10px;
+  }
+  .tag-cloud a {
+    text-decoration: none;
+    color: white;
+    /* padding: 10px; */
+    margin-right:20px;
+  }
+  .tag-cloud a:hover {
+    text-decoration: underline;
+  }
+  .font-size-18 { font-size: 18px; }
+  .font-size-20 { font-size: 20px; }
+  .font-size-22 { font-size: 22px; }
+  .font-size-24 { font-size: 24px; }
+  .font-size-26 { font-size: 26px; }
+  .font-size-28 { font-size: 28px; }
+  .font-size-30 { font-size: 30px; }
+  .font-size-32 { font-size: 32px; }
+
+</style>
+
+<div class="tag-cloud">
+<a href="https://github.com/twitter/finagle" class="font-size-32">Twitter/X</a>
+<a href="https://github.com/guardian/grid" class="font-size-32">The Guardian</a>
+<a href="https://github.com/lichess-org/lila" class="font-size-32">Lichess</a>
+<a href="https://github.com/Netflix/atlas" class="font-size-32">Netflix</a>
+<a href="https://github.com/linkedin/isolation-forest" class="font-size-32">Linkedin</a>
+<a href="https://github.com/coursera/courier" class="font-size-32">Coursera</a>
+<a href="https://jobs.apple.com/en-us/details/200589146/sr-development-data-engineer-music-books-podcasts-content-data-services?team=SFTWR" class="font-size-32">Apple</a>
+<a href="https://siriusxm.github.io/snapshot4s/" class="font-size-32">SiriusXM</a>
+<a href="https://engineering.zalando.com/posts/2018/01/why-we-do-scala.html" class="font-size-32">Zalando</a>
+<a href="https://github.com/morganstanley/optimus-cirrus" class="font-size-32">Morgan Stanley</a>
+<a href="https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/requisitions?keyword=Scala&mode=location" class="font-size-32">JP Morgan  </a>
+<a href="https://github.com/hmrc" class="font-size-32">HMRC / gov.uk</a>
+<a href="https://blog.duolingo.com/rewriting-duolingos-engine-in-scala/" class="font-size-32">Duolingo</a>
+<a href="https://github.com/m1finance" class="font-size-32">M1 Finance</a>
+<a href="https://github.com/LEGO/woof" class="font-size-32">LEGO</a>
+<a href="https://github.com/airbnb/chronon" class="font-size-32">Airbnb</a>
+<a href="https://github.com/spotify/scio" class="font-size-32">Spotify</a>
+<a href="https://github.com/paypal/squbs" class="font-size-32">PayPal</a>
+<a href="https://github.com/softwaremill" class="font-size-32">Softwaremill</a>
+<a href="https://virtuslab.com/expertise/scala/" class="font-size-32">Virtuslab</a>
+<a href="https://github.com/databricks/sjsonnet" class="font-size-32">Databricks</a>
+<a href="https://www.infoq.com/presentations/tesla-vpp/" class="font-size-32">Tesla</a>
+<a href="https://github.com/Workday/warp-core" class="font-size-32">Workday</a>
+<a href="https://disneystreaming.github.io/smithy4s" class="font-size-32">Disney Streaming</a>
+<a href="https://github.com/salesforce/orchard" class="font-size-32">Salesforce</a>
+<a href="https://github.com/ThoughtWorksInc/Dsl.scala" class="font-size-32">Thoughtworks</a>
+</div>
+
+
+
+
+<!-- _footer: Not a comprehensive list, last access 3.03.25, just a trainride of research 🚄 -->
+
+---
+
 # IDE Choice
 
 ![bg 100% blur:6px brightness:0.3](./img/ide-trim.jpg)
@@ -509,6 +623,19 @@ GET     /hello      controllers.HelloController.hello()
 
 Run `sbt run` and visit http://localhost:9000/hello to see your message!
 
+
+
+---
+
+<!-- REFACTORING NOTE
+
+Remove Cats Effect slides - too complicated
+
+Add tapir to right after play to show type-level endpoint definitions
+Add something on scala.js (simple website? consider https://laminar.dev/)
+Mention PurpleKingdomGames for making games
+
+ -->
 
 ---
 
