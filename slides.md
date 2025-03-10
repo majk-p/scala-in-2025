@@ -936,6 +936,7 @@ object CounterView {
 - https://www.youtube.com/watch?v=AQix1WaWuOo - Daniel Ciocîrlan GENERATIVE ART WITH SCALA, NO AI REQUIRED
 - https://www.lihaoyi.com/hands-on-scala-js - Hands on Scala.js by Li Haoyi
 - https://tyrian.indigoengine.io/documentation - Tyrian, Elm-inspired frontend framework
+- https://slinky.dev - Write React apps in Scala just like you would in ES6
 
 
 ---
@@ -1302,3 +1303,4 @@ Linkedin: [Michał Pawlik](https://www.linkedin.com/in/michał-pawlik/)
 Github: [majk-p](https://github.com/majk-p)
 Bluesky: [michal.pawlik.dev](https://bsky.app/profile/michal.pawlik.dev)
 
+![bg right:40% 80%](./img/homepage.png)
