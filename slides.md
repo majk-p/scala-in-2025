@@ -65,10 +65,20 @@ todos:
 
 ---
 
+# Before we move on ☝️
+
+Something too obvious? missing? 
+Let me know!
+
+![bg right:40% 80%](./img/homepage.png)
+
+---
+
 # What is Scala?
 
-- Combines Object-Oriented and Functional Programming
-- Runs on JVM, JavaScript, and Native platforms
+* Provides reliability through typesafety
+* Typed language that feels like dynamic one
+* Runs on JVM, JavaScript, and Native platforms
 
 ---
 
@@ -79,99 +89,16 @@ todos:
 
 ---
 
-# Before we move on ☝️
-
-Something too obvious? missing? 
-Let me know!
-![bg right:40% 80%](./img/scala-poland-qr.png)
-
----
-
 # Why try Scala?
 
 ![bg right:30% 70%](./img/scala-spiral.png)
 
 
-1. Type-Driven Development
-2. Multi-Platform Support
-3. Ecosystem Diversity
-4. Career Growth
-5. Modern Features
-
----
-
-# Type-Driven Development
-
-```scala
-// The compiler catches errors before runtime
-case class User(name: String, age: PosInt)
-
-val user = User("John Doe", -1) // this won't compile
-```
-
----
-
-# Multi-Platform Support
-
-```scala
-// Same code, different platforms
-object HelloWorld {
-  def sayHello(): String = "Hello, World!"
-}
-
-// JVM:    scala-cli run .
-// JS:     scala-cli --platform js run .
-// Native: scala-cli --platform native run .
-```
-
----
-
-# Ecosystem Diversity
-
-Choose your style:
-```scala
-// Object-Oriented with Play
-class UserController extends Controller {
-  def users = Action { Ok(getUsers()) }
-}
-
-// Functional with Cats Effect
-def users[F[_]: Async]: F[List[User]] = UserRepo[F].findAll
-
-// Script-style with Cask
-@get("/users") def users() = getUserList()
-```
-
----
-
-# Career Growth
-
-- Strong presence in fintech, streaming platforms, data engineering
-- High demand in data engineering and distributed systems
-- Competetive salaries 
-
----
-
-# Modern Features
-
-```scala
-// Pattern matching
-value match {
-  case Success(data) => process(data)
-  case Failure(err)  => handleError(err)
-}
-
-// Extension methods
-extension (n: Int) {
-  def squared: Int = n * n
-}
-5.squared
-
-// Context functions
-def setup(using Config): Unit = ???
-given Config = loadConfig()
-setup()
-```
+1) Reliability through types
+2) Multi-Platform Support (JVM, JS, Native)
+3) Modern Features
+4) Ecosystem Diversity
+5) Career Growth
 
 ---
 
@@ -225,28 +152,71 @@ Some research entry points:
 
 
 <style>
-  .tag-cloud {
+  .companies-cloud {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    /* font-size: 16px; */
     gap: 10px;
   }
-  .tag-cloud a {
+  .companies-cloud a {
     text-decoration: none;
     color: white;
-    /* padding: 10px; */
-    margin-right:20px;
+    margin-right: 20px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
   }
-  .tag-cloud a:hover {
+  .companies-cloud a:hover {
     text-decoration: underline;
   }
   .font-size-32 { font-size: 32px; }
 
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Set different animation delays for each link */
+  .companies-cloud a:nth-child(1) { animation-delay: 0s; }
+  .companies-cloud a:nth-child(2) { animation-delay: 0.2s; }
+  .companies-cloud a:nth-child(3) { animation-delay: 0.4s; }
+  .companies-cloud a:nth-child(4) { animation-delay: 0.6s; }
+  .companies-cloud a:nth-child(5) { animation-delay: 0.8s; }
+  .companies-cloud a:nth-child(6) { animation-delay: 1s; }
+  .companies-cloud a:nth-child(7) { animation-delay: 1.2s; }
+  .companies-cloud a:nth-child(8) { animation-delay: 1.4s; }
+  .companies-cloud a:nth-child(9) { animation-delay: 1.6s; }
+  .companies-cloud a:nth-child(10) { animation-delay: 1.8s; }
+  .companies-cloud a:nth-child(11) { animation-delay: 2s; }
+  .companies-cloud a:nth-child(12) { animation-delay: 2.2s; }
+  .companies-cloud a:nth-child(13) { animation-delay: 2.4s; }
+  .companies-cloud a:nth-child(14) { animation-delay: 2.6s; }
+  .companies-cloud a:nth-child(15) { animation-delay: 2.8s; }
+  .companies-cloud a:nth-child(16) { animation-delay: 3s; }
+  .companies-cloud a:nth-child(17) { animation-delay: 3.2s; }
+  .companies-cloud a:nth-child(18) { animation-delay: 3.4s; }
+  .companies-cloud a:nth-child(19) { animation-delay: 3.6s; }
+  .companies-cloud a:nth-child(20) { animation-delay: 3.8s; }
+  .companies-cloud a:nth-child(21) { animation-delay: 4s; }
+  .companies-cloud a:nth-child(22) { animation-delay: 4.2s; }
+  .companies-cloud a:nth-child(23) { animation-delay: 4.4s; }
+  .companies-cloud a:nth-child(24) { animation-delay: 4.6s; }
+  .companies-cloud a:nth-child(25) { animation-delay: 4.8s; }
+  .companies-cloud a:nth-child(26) { animation-delay: 5s; }
+  .companies-cloud a:nth-child(27) { animation-delay: 5.2s; }
+  .companies-cloud a:nth-child(28) { animation-delay: 5.4s; }
+  .companies-cloud a:nth-child(29) { animation-delay: 5.6s; }
+  .companies-cloud a:nth-child(30) { animation-delay: 5.8s; }
+
 </style>
 
-<div class="tag-cloud">
+<div class="companies-cloud">
 <a href="https://github.com/twitter/finagle" class="font-size-32">Twitter/X</a>
 <a href="https://github.com/guardian/grid" class="font-size-32">The Guardian</a>
 <a href="https://github.com/lichess-org/lila" class="font-size-32">Lichess</a>
@@ -277,7 +247,6 @@ Some research entry points:
 <a href="https://xebia.com/blog/" class="font-size-32">Xebia Functional</a>
 <a href="https://careers.wolt.com/en/blog/tech/scala-at-wolt-our-scala-organization-part-i" class="font-size-32">Wolt</a>
 </div>
-
 
 
 
@@ -862,6 +831,14 @@ Current value: 2
 
 Native Scala.js library for building user interfaces
 
+
+---
+
+# Laminar: Example
+
+![](./img/laminar-counter.png)
+
+
 ---
 
 # Laminar: Example
@@ -953,15 +930,16 @@ object CounterView {
 
 ![bg 100% blur:2px brightness:0.3](./img/long-way.jpg)
 
-- [Spark](https://spark.apache.org/docs/latest/quick-start.html): Big data processing
-- Functional streams with [FS2](https://fs2.io/#/)
-- [Cats Effect](https://typelevel.org/cats-effect/): The pure asynchronous runtime for Scala
-- [ZIO](https://zio.dev/): Effect system with built-in dependency injection
-- [Kyo](https://getkyo.io): Novel approach based on algebraic effects
-- [Gears](https://lampepfl.github.io/gears/): Experimental async programming for Scala
-- Casual FP: Mix and match functional concepts
-- [Indigo](https://indigoengine.io/): Make games with Scala
-- And a lot more
+* [Spark](https://spark.apache.org/docs/latest/quick-start.html): Big data processing
+* Functional streams with [FS2](https://fs2.io/#/)
+* [Cats Effect](https://typelevel.org/cats-effect/): The pure asynchronous runtime for Scala
+* [ZIO](https://zio.dev/): Effect system with built-in dependency injection
+* [Kyo](https://getkyo.io): Novel approach based on algebraic effects
+* [Gears](https://lampepfl.github.io/gears/): Experimental async programming for Scala
+* Casual FP: Mix and match functional concepts
+* [Indigo](https://indigoengine.io/): Make games with Scala
+* [Souds of Scala](https://github.com/pauliamgiant/sounds-of-scala): Build music applications
+* And a lot more
 
 ---
 
@@ -1094,32 +1072,33 @@ And more https://www.nbshare.io/blog/best-scala-tutorials-on-youtube/
 
 ![bg 100% blur:8px brightness:0.2](./img/covers/combined.png)
 
-### Programming in Scala
+* **Programming in Scala**
 Comprehensive guide by Martin Odersky
 
-### Grokking functional programming
+* **Scala for the impatient**
+Compact introduction guide for those already competent in other languages like Java, C#, Python, JS or C++
+
+* **Grokking functional programming**
 by Michał Płachta easy way to learn functional programming for those familiar with the OOP ideas
 
-### Functional Programming Strategies In Scala with Cats
+* **Functional Programming Strategies In Scala with Cats**
 by Noel Welsh, compendium on learning Cats library
-
 
 ---
 
 # Books
 ![bg 100% blur:8px brightness:0.2](./img/covers/combined.png)
 
-### Functional programming in Scala 
+* **Functional programming in Scala**
 a.k.a. "The red book", your go-to book for hands-on, advanced functional programming 
 
-
-### Practical FP in Scala
+* **Practical FP in Scala**
 For those familiar with functional programming in Scala who are yet not confident about architecting an application from scratch
 
-### Functional Event-Driven Architecture
+* **Functional Event-Driven Architecture**
 Explore the event-driven architecture (EDA) in a purely functional way.
 
-Many more https://docs.scala-lang.org/books.html https://whatpixel.com/best-scala-books/
+* Many more https://docs.scala-lang.org/books.html https://whatpixel.com/best-scala-books/
 
 
 ---
@@ -1221,13 +1200,11 @@ https://www.scala-lang.org/community
 
 # Forums
 
-[Scala Poland 🇵🇱](https://join.slack.com/t/scala-poland/shared_invite/zt-1jeq834yd-iOTH4U1Gto3YWu_lEVY5oA) on Slack
 [Scala](https://discord.com/invite/scala) on discord
 [Reddit r/scala](https://old.reddit.com/r/scala/)
 [Scala Users Discourse](https://users.scala-lang.org/)
 [Scala Contributors Discourse](https://contributors.scala-lang.org/)
-
-<!-- second slide with a more comprehensive list of forums -->
+[Scala Poland 🇵🇱](https://join.slack.com/t/scala-poland/shared_invite/zt-1jeq834yd-iOTH4U1Gto3YWu_lEVY5oA) on Slack
 
 ---
 
@@ -1263,11 +1240,40 @@ https://www.scala-lang.org/community
 
 # News
 
-[Scala Times](https://scalatimes.com/) by Softwaremill
-[This week in Scala](https://medium.com/@petr-zapletal) by Petr Zapletal
-[Scala feed](https://bsky.app/profile/michal.pawlik.dev/feed/scala-feed) on Bluesky
+![bg fill  blur:2px brightness:0.3](./img/news.jpg)
 
-<!-- roadmap if ready -->
+---
+
+# Scala Times
+
+by Softwaremill
+
+https://scalatimes.com/
+
+![bg right:50% 100%](./img/scalatimes.png)
+
+
+---
+
+# Scala Times
+
+by Petr Zapletal
+
+https://thisweekinscala.substack.com/ 
+
+![bg right:48% 100%](./img/thisweekinscala.png)
+
+---
+
+# Scala Feed on Bluesky
+
+by Michał Pawlik
+
+https://bsky.app/profile/michal.pawlik.dev/feed/scala-feed 
+
+
+![bg right:40% 80%](./img/scalafeed.png)
+
 
 ---
 
@@ -1275,14 +1281,18 @@ https://www.scala-lang.org/community
 
 ![bg 100% blur:2px brightness:0.3](./img/wrapping.jpg)
 
+<!-- _footer: Whatever they tell you online, this image does **not** present a monad -->
+
 ---
 
 # Start Your Journey
 
 1) Begin with scala-cli and simple scripts
 2) Pick a style that feels natural
-3) Join the community (Slack, Discord, Reddit)
-4) Learn by building real projects
+3) Learn by building real projects
+4) Join the community (Slack, Discord, Reddit)
+
+![bg 100% blur:2px brightness:0.3](./img/long-way.jpg)
 
 ---
 
