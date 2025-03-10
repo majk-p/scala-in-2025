@@ -81,8 +81,8 @@ todos:
 
 # Before we move on ☝️
 
-Something too obvious? something missing? 
-Ping me on Slack
+Something too obvious? missing? 
+Let me know!
 ![bg right:40% 80%](./img/scala-poland-qr.png)
 
 ---
@@ -146,7 +146,7 @@ def users[F[_]: Async]: F[List[User]] = UserRepo[F].findAll
 
 # Career Growth
 
-- Strong presence in fintech and streaming platforms
+- Strong presence in fintech, streaming platforms, data engineering
 - High demand in data engineering and distributed systems
 - Competetive salaries 
 
@@ -172,6 +172,116 @@ def setup(using Config): Unit = ???
 given Config = loadConfig()
 setup()
 ```
+
+---
+
+# Is Scala still relevant?
+<!-- _transition: fade -->
+
+![bg 100% blur:2px brightness:0.3](./img/pexels-pixabay-237258.jpg)
+
+---
+
+# Companies using Scala
+
+
+![bg 100% blur:5px brightness:0.3](./img/pexels-pixabay-237258.jpg)
+
+<!-- 
+Some research entry points:
+- https://en.wikipedia.org/wiki/Scala_(programming_language)#Companies
+- https://www.phind.com/search/cm7t37cup00002v6mor2h2097
+- https://github.com/uhub/awesome-scala
+- https://www.perplexity.ai/search/i-m-working-on-an-introduction-GZXmiB0QTRqiG7.XyvUP3g
+- https://github.com/stkeky/best-of-scala
+ -->
+<!-- 
+[Twitter/X](https://github.com/twitter/finagle)
+[The Guardian](https://github.com/guardian/grid)
+[Lichess](https://github.com/lichess-org/lila)
+[Netflix](https://github.com/Netflix/atlas)
+[Linkedin](https://github.com/linkedin/isolation-forest)
+[Coursera](https://github.com/coursera/courier)
+[Apple](https://jobs.apple.com/en-us/details/200589146/sr-development-data-engineer-music-books-podcasts-content-data-services?team=SFTWR)
+[SiriusXM](https://siriusxm.github.io/snapshot4s/)
+[Zalando](https://engineering.zalando.com/posts/2018/01/why-we-do-scala.html)
+[Morgan Stanley](https://github.com/morganstanley/optimus-cirrus)
+[JP Morgan](https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/requisitions?keyword=Scala&mode=location)
+[HMRC and more of gov.uk](https://github.com/hmrc)
+[Duolingo](https://blog.duolingo.com/rewriting-duolingos-engine-in-scala/)
+[M1 Finance](https://github.com/m1finance)
+[LEGO](https://github.com/LEGO/woof)
+[Airbnb](https://github.com/airbnb/chronon)
+[Spotify](https://github.com/spotify/scio)
+[PayPal](https://github.com/paypal/squbs)
+[Softwaremill](https://github.com/softwaremill)
+[Virtuslab](https://virtuslab.com/expertise/scala/)
+[Databricks](https://github.com/databricks/sjsonnet)
+[Tesla](https://www.infoq.com/presentations/tesla-vpp/)
+[Workday](https://github.com/Workday/warp-core)
+[Disney Streaming](https://disneystreaming.github.io/smithy4s)
+[Salesforce](https://github.com/salesforce/orchard)
+[Thoughtworks](https://github.com/ThoughtWorksInc/Dsl.scala) -->
+
+
+<style>
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* font-size: 16px; */
+    gap: 10px;
+  }
+  .tag-cloud a {
+    text-decoration: none;
+    color: white;
+    /* padding: 10px; */
+    margin-right:20px;
+  }
+  .tag-cloud a:hover {
+    text-decoration: underline;
+  }
+  .font-size-32 { font-size: 32px; }
+
+</style>
+
+<div class="tag-cloud">
+<a href="https://github.com/twitter/finagle" class="font-size-32">Twitter/X</a>
+<a href="https://github.com/guardian/grid" class="font-size-32">The Guardian</a>
+<a href="https://github.com/lichess-org/lila" class="font-size-32">Lichess</a>
+<a href="https://github.com/Netflix/atlas" class="font-size-32">Netflix</a>
+<a href="https://github.com/linkedin/isolation-forest" class="font-size-32">Linkedin</a>
+<a href="https://github.com/coursera/courier" class="font-size-32">Coursera</a>
+<a href="https://jobs.apple.com/en-us/details/200589146/sr-development-data-engineer-music-books-podcasts-content-data-services?team=SFTWR" class="font-size-32">Apple</a>
+<a href="https://siriusxm.github.io/snapshot4s/" class="font-size-32">SiriusXM</a>
+<a href="https://engineering.zalando.com/posts/2018/01/why-we-do-scala.html" class="font-size-32">Zalando</a>
+<a href="https://github.com/morganstanley/optimus-cirrus" class="font-size-32">Morgan Stanley</a>
+<a href="https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/requisitions?keyword=Scala&mode=location" class="font-size-32">JP Morgan  </a>
+<a href="https://github.com/hmrc" class="font-size-32">HMRC / gov.uk</a>
+<a href="https://blog.duolingo.com/rewriting-duolingos-engine-in-scala/" class="font-size-32">Duolingo</a>
+<a href="https://github.com/m1finance" class="font-size-32">M1 Finance</a>
+<a href="https://github.com/LEGO/woof" class="font-size-32">LEGO</a>
+<a href="https://github.com/airbnb/chronon" class="font-size-32">Airbnb</a>
+<a href="https://github.com/spotify/scio" class="font-size-32">Spotify</a>
+<a href="https://github.com/paypal/squbs" class="font-size-32">PayPal</a>
+<a href="https://github.com/softwaremill" class="font-size-32">Softwaremill</a>
+<a href="https://virtuslab.com/expertise/scala/" class="font-size-32">Virtuslab</a>
+<a href="https://github.com/databricks/sjsonnet" class="font-size-32">Databricks</a>
+<a href="https://www.infoq.com/presentations/tesla-vpp/" class="font-size-32">Tesla</a>
+<a href="https://github.com/Workday/warp-core" class="font-size-32">Workday</a>
+<a href="https://disneystreaming.github.io/smithy4s" class="font-size-32">Disney Streaming</a>
+<a href="https://github.com/salesforce/orchard" class="font-size-32">Salesforce</a>
+<a href="https://github.com/ThoughtWorksInc/Dsl.scala" class="font-size-32">Thoughtworks</a>
+<a href="https://swissborg.com/" class="font-size-32">SwissBorg</a>
+<a href="https://xebia.com/blog/" class="font-size-32">Xebia Functional</a>
+<a href="https://careers.wolt.com/en/blog/tech/scala-at-wolt-our-scala-organization-part-i" class="font-size-32">Wolt</a>
+</div>
+
+
+
+
+<!-- _footer: Not a comprehensive list, last access 3.03.25, just a trainride of research 🚄 -->
 
 ---
 
@@ -510,82 +620,93 @@ GET     /hello      controllers.HelloController.hello()
 Run `sbt run` and visit http://localhost:9000/hello to see your message!
 
 
----
-
-# Cats Effect
-
-The pure asynchronous runtime for Scala
-
-https://typelevel.org/cats-effect
-
-![bg right:40% 70%](./img/cats-effect-logo.svg)
 
 ---
 
-# Cats Effect: Dependencies
+# Tapir 
+
+
+![bg right:40% 70%](./img/tapir.svg)
+<!-- ![bg right contain](./img/tapir.svg) -->
+
+
+Programmer-friendly, reasonably type-safe API to expose, consume and document HTTP endpoints
+
+---
+
+# Tapir: Dependencies
 
 ```scala
-//> using dep "org.typelevel::cats-effect:3.5.4"
-import cats.effect.{IO, IOApp, Resource}
-import cats.syntax.parallel._
-```
-
----
-# Cats Effect: database connection
-
-```scala
-object DbConnection {
-  def connect(name: String): IO[DbConnection]
-}
-class DbConnection {
-  def query[A](sql: String): IO[A] = ???
-  def close: IO[Unit]
-}
+//> using scala 3.6.3
+//> using dep com.softwaremill.sttp.tapir::tapir-http4s-server:1.11.15
+//> using dep org.http4s::http4s-ember-server:0.23.30
+//> using dep com.softwaremill.sttp.tapir::tapir-json-circe:1.11.15
+//> using dep ch.qos.logback:logback-classic:1.5.16
 ```
 
 ---
 
-# Cats Effect: Read file
+# Tapir: Endpoint definition
 
 ```scala
-import java.nio.file.{Files, Path, Paths}
-import scala.jdk.CollectionConverters.*
+object Endpoints {
+  val booksListing: PublicEndpoint[String, Unit, List[Book], Any] = endpoint.get
+    .in("books" / "list" / query[String]("filter"))
+    .out(jsonBody[List[Book]])
+  
+  val booksListingServerEndpoint: ServerEndpoint[Any, IO] = 
+    booksListing.serverLogicSuccess(filter => Library.books(filter))
 
-def listFiles: IO[List[UserFiles]] = {
-  IO.blocking {
-    Files.list(Paths.get("."))
-      .iterator()
-      .asScala
-      .filter(_.toString.endsWith(".txt"))
-      .toList
-  }
+  val all: List[ServerEndpoint[Any, IO]] = List(booksListingServerEndpoint)
+}
+
+object Library {
+  case class Author(name: String)
+  case class Book(title: String, year: Int, author: Author)
+
+  def books(filter: String): IO[List[Book]] = /* irrelevant */
 }
 ```
 
 ---
 
-# Cats Effect: Program
+# Tapir: Main application
 
 ```scala
-object Demo extends IOApp.Simple {
-  def createConnection(name: String): Resource[IO, DbConnection] =
-    Resource.make(DbConnection.connect(name))(_.close)
+object Main extends IOApp {
 
-  def run: IO[Unit] = {
-    val program = (
-      createConnection("users").use(_.query[User]("SELECT ...")),
-      createConnection("prefs").use(_.query[UserPrefs]("SELECT ...")),
-      listFiles
-    ).parMapN{(user, prefs, files) => 
-      s"${user.name} uses ${prefs.theme} theme in files ${files}"
-    }
+  override def run(args: List[String]): IO[ExitCode] =
 
-    program.handleErrorWith(err => 
-      IO.raiseError(new Exception("Failed: " + err.getMessage))
-    )
-  }
+    val routes = Http4sServerInterpreter[IO]().toRoutes(Endpoints.all)
+
+    val port = sys.env
+      .get("HTTP_PORT")
+      .flatMap(_.toIntOption)
+      .flatMap(Port.fromInt)
+      .getOrElse(port"8080")
+
+    EmberServerBuilder
+      .default[IO]
+      .withHost(Host.fromString("localhost").get)
+      .withPort(port)
+      .withHttpApp(Router("/" -> routes).orNotFound)
+      .build
+      .use{ server =>
+        for
+          _ <- IO.println(s"Server started at http://localhost:${server.address.getPort}. Press ENTER key to exit.")
+          _ <- IO.readLine
+        yield ()
+      }.as(ExitCode.Success)
 }
 ```
+
+---
+
+# Adopt Tapir!
+
+https://adopt-tapir.softwaremill.com
+
+![bg right:40% 70%](./img/tapir.svg)
 
 ---
 
@@ -734,6 +855,92 @@ Current value: 2
 
 ---
 
+# Laminar: User Interfaces for Scala.js 
+
+
+![bg right:20% 70%](./img/laminar-logo.png)
+
+Native Scala.js library for building user interfaces
+
+---
+
+# Laminar: Example
+
+```scala
+package example
+
+import com.raquo.laminar.api.L.{*, given}
+
+object CounterView {
+
+  def apply(): HtmlElement = {
+    div(
+      cls("CounterView"),
+      Counter(label = "Foo", initialStep = 1),
+    )
+  }
+
+  /* Counter implementation */
+}
+```
+
+---
+
+# Laminar: Example
+
+```scala
+package example
+
+import com.raquo.laminar.api.L.{*, given}
+
+object CounterView {
+  def Counter(label: String, initialStep: Int): HtmlElement = {
+    val allowedSteps = List(1, 2, 3, 5, 10)
+    val stepVar = Var(initialStep)
+    val diffBus = new EventBus[Int]
+    val countSignal: Signal[Int] = diffBus.events.scanLeft(initial = 0)(_ + _)
+
+    div(
+      cls("Counter"),
+      p(
+        "Step: ",
+        select(
+          value <-- stepVar.signal.map(_.toString),
+          onChange.mapToValue.map(_.toInt) --> stepVar,
+          allowedSteps.map { step => option(value := step.toString, step) }
+        )
+      ),
+      p(
+        label + ": ",
+        b(text <-- countSignal),
+        " ",
+        button("–", onClick.mapTo(-1 * stepVar.now()) --> diffBus),
+        button("+", onClick(_.sample(stepVar.signal)) --> diffBus)
+      )
+    )
+  }
+}
+```
+
+---
+
+# Laminar: Example
+
+![](./img/laminar-counter.png)
+
+
+---
+
+# Scala.js: Resources
+
+- https://www.youtube.com/watch?v=AQix1WaWuOo - Daniel Ciocîrlan GENERATIVE ART WITH SCALA, NO AI REQUIRED
+- https://www.lihaoyi.com/hands-on-scala-js - Hands on Scala.js by Li Haoyi
+- https://tyrian.indigoengine.io/documentation - Tyrian, Elm-inspired frontend framework
+- https://slinky.dev - Write React apps in Scala just like you would in ES6
+
+
+---
+
 # That's just the beginning!
 
 <!-- _transition: fade -->
@@ -746,12 +953,14 @@ Current value: 2
 
 ![bg 100% blur:2px brightness:0.3](./img/long-way.jpg)
 
-- Spark: Big data processing
-- Functional streams with FS2
-- ZIO: Effect system with built-in dependency injection
-- Kyo: Novel approach based on algebraic effects
-- Gears: Experimental async programming for Scala
+- [Spark](https://spark.apache.org/docs/latest/quick-start.html): Big data processing
+- Functional streams with [FS2](https://fs2.io/#/)
+- [Cats Effect](https://typelevel.org/cats-effect/): The pure asynchronous runtime for Scala
+- [ZIO](https://zio.dev/): Effect system with built-in dependency injection
+- [Kyo](https://getkyo.io): Novel approach based on algebraic effects
+- [Gears](https://lampepfl.github.io/gears/): Experimental async programming for Scala
 - Casual FP: Mix and match functional concepts
+- [Indigo](https://indigoengine.io/): Make games with Scala
 - And a lot more
 
 ---
@@ -1094,3 +1303,4 @@ Linkedin: [Michał Pawlik](https://www.linkedin.com/in/michał-pawlik/)
 Github: [majk-p](https://github.com/majk-p)
 Bluesky: [michal.pawlik.dev](https://bsky.app/profile/michal.pawlik.dev)
 
+![bg right:40% 80%](./img/homepage.png)
